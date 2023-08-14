@@ -1,0 +1,341 @@
+{
+	"info": {
+		"_postman_id": "9404c64a-45d5-4aad-8678-d9a144d96cc6",
+		"name": "swisslub",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29114402"
+	},
+	"item": [
+		{
+			"name": "Pruebas tabla movimiento",
+			"item": [
+				{
+					"name": "Obtener todos los movimientos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/movimientos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movimientos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener movimiento por id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/movimientos/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movimientos",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener movimiento por estado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/movimientos/estado/P",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movimientos",
+								"estado",
+								"P"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear movimiento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idEmpresa\": 8,\r\n  \"descripcion\": \"Nuevo Movimiento\",\r\n  \"codigoBodegaOrigen\": \"BOD015\",\r\n  \"codigoBodegaDestino\": \"BOD016\",\r\n  \"fechaCreacion\": \"2023-09-01\",\r\n  \"fechaEntrega\": \"2023-09-10\",\r\n  \"estado\": \"P\",\r\n  \"detalles\": [\r\n    {\r\n      \"itemCodigo\": \"COD008\",\r\n      \"cantidadEnviada\": 7\r\n    },\r\n    {\r\n      \"itemCodigo\": \"COD009\",\r\n      \"cantidadEnviada\": 9\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/movimientos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movimientos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar movimiento",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 7,\r\n  \"descripcion\": \"Movimiento Actualizado!!!\",\r\n  \"codigoBodegaOrigen\": \"BOD020\",\r\n  \"codigoBodegaDestino\": \"BOD021\",\r\n  \"estado\": \"T\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/movimientos/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movimientos",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar movimiento",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/movimientos/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movimientos",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pruebas tabla movimiento_detalle",
+			"item": [
+				{
+					"name": "Obtener lista detalles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/detalles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"detalles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener detalles por id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Crear detalles",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movimiento\": {\r\n    \"id\": 4  // ID del movimiento al que pertenecerá este detalle\r\n  },\r\n  \"itemCodigo\": \"COD001\",\r\n  \"cantidadEnviada\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/detalles",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"detalles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar detalle",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 10,\r\n  \"movimiento\": {\r\n    \"id\": 4  // ID del movimiento al que pertenecerá este detalle\r\n  },\r\n  \"itemCodigo\": \"COP111\",\r\n  \"cantidadEnviada\": 101\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/detalles/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"detalles",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar detalle",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/detalles/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"detalles",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener detalles por movimiento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/detalles/movimiento/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"detalles",
+								"movimiento",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener detalles por estado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/detalles/porEstadoDeMovimiento/T",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"detalles",
+								"porEstadoDeMovimiento",
+								"T"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener detalles personalizado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/movimientos-detalles-personalizados?estado=T",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movimientos-detalles-personalizados"
+							],
+							"query": [
+								{
+									"key": "estado",
+									"value": "T"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
